@@ -18,8 +18,6 @@ import Layout from "./screens/Dashboard/Layout.jsx";
 import AboutUs from "./screens/AboutUs.jsx";
 import ContactUs from "./screens/ContactUs.jsx";
 import Footer from "./components/Footer.jsx";
-import Test from "./Test.jsx";
-import Gest from "./Gest.jsx";
 
 const App = () => {
   return (
