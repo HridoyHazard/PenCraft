@@ -6,9 +6,9 @@ import { useUpdateUserMutation } from "../slices/usersApiSlice";
 import { useGetUserByIdQuery } from "../slices/usersApiSlice";
 import { useUploadImageMutation } from "../slices/uploadApiSlice";
 import { setCredentials } from "../slices/authSlice";
-import { set } from "mongoose";
 
 const ProfileScreen = () => {
+  
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");

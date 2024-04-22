@@ -13,14 +13,14 @@ await connectDB();
 
 const importData = async () => {
   try {
-    // await User.deleteMany();
-    await Article.deleteMany();
+    await User.deleteMany();
+    // await Article.deleteMany();
 
-    // const createdUsers = await User.insertMany(users);
-    const createdArticles = await Article.insertMany(articles);
+    const createdUsers = await User.insertMany(users);
+    // const createdArticles = await Article.insertMany(articles);
 
-    // console.log(createdUsers);
-    console.log(createdArticles);
+    console.log(createdUsers);
+    // console.log(createdArticles);
 
     console.log("Data Imported!");
     process.exit();
