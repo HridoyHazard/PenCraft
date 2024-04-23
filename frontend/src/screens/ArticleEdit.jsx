@@ -24,6 +24,8 @@ const ArticleEdit = () => {
     refetch,
   } = useGetArticleByIdQuery(articleId);
 
+  console.log(article);
+
   const [updateArticle, { isLoading: isUpdating }] = useUpdateArticleMutation();
 
   const [uploadImage, { isLoading: loadingUpload }] = useUploadImageMutation();
@@ -71,7 +73,6 @@ const ArticleEdit = () => {
     }
   }, [article]);
 
-  console.log(image);
 
   return (
     <div class="max-w-xl mx-auto mt-20">

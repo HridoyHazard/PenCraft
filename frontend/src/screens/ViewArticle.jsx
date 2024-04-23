@@ -3,8 +3,6 @@ import { useParams } from "react-router-dom";
 import { useGetArticleByIdQuery } from "../slices/articleApiSlice";
 import Loader from "../components/Loader";
 
-// const url = "http://localhost:5000/";
-
 const ViewArticle = () => {
   const { id } = useParams();
 
