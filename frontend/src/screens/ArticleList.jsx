@@ -8,6 +8,7 @@ import {
   useDeleteArticleMutation,
 } from "../slices/articleApiSlice";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const ArticleList = () => {
   const { id: articleId } = useParams();
@@ -16,20 +17,34 @@ const ArticleList = () => {
 
   const navigate = useNavigate();
 
-  const { data: articles, isLoading: isLoadingArticles, refetch } =
-    useGetArticleByAuthorIdQuery(userInfo?._id);
+  const {
+    data: articles,
+    isLoading: isLoadingArticles,
+    refetch,
+  } = useGetArticleByAuthorIdQuery(userInfo?._id);
 
   const [deleteArticle, { isLoading: loadingDelete }] =
     useDeleteArticleMutation(articleId);
 
-  const handleDelete = async (id) => {
-    try {
-      await deleteArticle(id).unwrap();
-      console.log("Deleted");
-      refetch();
-    } catch (err) {
-      console.error(err);
-    }
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      icon: "question",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await deleteArticle(id).unwrap();
+          console.log("Deleted");
+          refetch();
+        } catch (err) {
+          console.error(err);
+        }
+      }
+    });
   };
 
   return (

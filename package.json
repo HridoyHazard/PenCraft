@@ -1,8 +1,8 @@
 {
-  "name": "mern-auth",
+  "name": "PenCraft",
   "version": "1.0.0",
   "type": "module",
-  "description": "MERN authentication system",
+  "description": "A full stack MERN application",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
@@ -11,7 +11,7 @@
     "data:import": "node backend/seeder",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Brad Traversy",
+  "author": "Tasnia",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",

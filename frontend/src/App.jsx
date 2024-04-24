@@ -25,20 +25,23 @@ const App = () => {
       <ToastContainer />
       <Navbar />
       <Routes>
-        <Route exact path="/dashboard" element={<Layout />}>
-          <Route index element={<Dashboard />} />
-          <Route path="articlelist" element={<ArticleList />} />
-          <Route path="profile" element={<ProfileScreen />} />
-        </Route>
         <Route index={true} path="/" element={<HomeScreen />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Register />} />
         <Route path="/authors" element={<AuthorList />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/authors/:id" element={<AuthorProfile />} />
-        <Route path="/create" element={<CreateArticle />} />
-        <Route path="/article/:id/edit" element={<ArticleEdit />} />
+        <Route path="" element={<PrivateRoute />}>
+          <Route path="/authors/:id" element={<AuthorProfile />} />
+          <Route path="/create" element={<CreateArticle />} />
+          <Route path="/article/:id/edit" element={<ArticleEdit />} />
+          <Route exact path="/dashboard" element={<Layout />}>
+            <Route index element={<Dashboard />} />
+            <Route path="articlelist" element={<ArticleList />} />
+            <Route path="profile" element={<ProfileScreen />} />
+          </Route>
+        </Route>
+
         <Route path="/article/view/:id" element={<ViewArticle />} />
 
         <Route path="" element={<PrivateRoute />}></Route>
